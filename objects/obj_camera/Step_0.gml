@@ -1,0 +1,1 @@
+show_debug_message("room_width camera: " + string(room_width));

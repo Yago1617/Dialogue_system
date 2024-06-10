@@ -1,0 +1,79 @@
+#__PrivCrochet_version:1
+__PrivCrochet_colorID: 0
+__PrivCrochet_position: 734,221
+__PrivCrochet_tags: 
+title: Hall
+---
+<<bg(0)>>
+<<declare $chave = false>> // "declarando" variáveis
+Boy1: Isso é um teste de diálogo.
+Boy1: Você pode ver que, após clicar no espaço, opções apareceram.
+-> Opção que muda de cenário.
+    <<jump Quarto>>
+-> Opção que pode ser usada uma única vez. <<if visited("Banheiro") == false>>
+    <<jump Banheiro>>
+-> Opção com mais opções.
+    Boy2: Realmente terá novas opções?
+    Boy1: Claro que sim. Melhor ainda, opções com variáveis.
+    -> Está opção te da uma chave.
+        <<if $chave == false>>
+            Você ganhou uma chave agora!
+            Boy1: Para testar a chave, veja se aparecera a opção usar chave no final.
+            <<set $chave = true>>
+        <<elseif $chave == true>>
+            Você já tem a chave.
+        <<endif>>
+    -> Está opção não vai te dar nada.
+        <<if $chave == false>>
+            Você continua com os bolsos vazios.
+            Boy1: Para testar a chave, veja se aparecera a opção usar chave no final.
+        <<elseif $chave == true>>
+            Você já tem a chave.
+        <<endif>>
+-> Usar chave <<if $chave == true>>
+    Você conseguiu usar a chave.
+<<jump Hall>>
+===
+__PrivCrochet_colorID: 0
+__PrivCrochet_position: 1107,105
+__PrivCrochet_tags: 
+title: Quarto
+---
+<<bg(1)>>
+Boy1: Esse é o quarto, mas não tem muito o que fazer aqui.
+Boy2: E se tentarmos algumas funções do [rainbow]Scribble[/rainbow] por aqui?
+Boy1: Bom, aqui vai alguns efeitos do Scribble.
+Boy1: Podemos escalonar o texto usando scale entre colchetes e adicionar o tamanho.
+Boy2: Tipo assim? [scale, 2]Fica gigante[/scale].
+Boy1: Isso mesmo.
+Boy1: Podemos colocar itálico colocando slant entre colchetes.
+Boy2: Vou tentar. [slant]Tá em itálico?[/slant]
+Boy1: Acredito que sim.
+Boy2: Olha só o que eu aprendi.
+Boy2: [wave]ONDAAAAA![/wave]
+Boy2: [shake]TERREMOTOOOOOO![/shake]
+Boy2: [wobble]WOBBLEEEEE?![/wobble]
+Boy1: KKKKKK! É, é. Você descobriu as animações.
+Boy2: Agora faz sentido a forma que eles toma.
+Boy1: Bom tem mais algumas opções como o [pulse]pulse[/pulse], [wheel]wheel[/wheel], [jitter]jitter[/jitter], [blink]blink[/blink] e [rainbow]rainbow[/rainbow].
+Boy2: Isso é legal, mas uma pergunta, tem como colocar coloração?
+Boy1: Tem sim. Se usarmos o um "c_" e o nome da cor dentro dos colchetes para muda a cor.
+Boy2: [c_red]Mudou a cor?[/c]
+Boy1: Espero que sim KKKKKK.
+Boy1: Bom, agora que terminamos por aqui, vamos voltar pro hall.
+<<jump Hall>>
+===
+__PrivCrochet_colorID: 0
+__PrivCrochet_position: 1103,419
+__PrivCrochet_tags: 
+title: Banheiro
+---
+<<bg(2)>>
+Boy1: Aproveite pra ver bem o banheiro já que sera a última vez que o verá.
+Boy2: Poxa! ;-;
+Boy1: Quer ir para qual cômodo agora?
+-> Hall
+    <<jump Hall>>
+-> Quarto
+    <<jump Quarto>>
+===

@@ -1,0 +1,38 @@
+#__PrivCrochet_version:1
+__PrivCrochet_colorID: 6
+__PrivCrochet_position: 562,218
+__PrivCrochet_tags: 
+title: Start
+---
+<<bg(0)>> // O fundo em que colocaremos no jogo
+Boy: Olá. Bom dia! // Diálogo do personagem é dada pelo nome e dois pontos na frente.
+Boy: Para onde você está indo?
+    -> A sala de aula. // As setas representam escolhas do jogador
+        Boy: Estou indo para lá também.
+        <<jump Opção 1>> // Os jumps levam a novas caixas de diálogo.
+    -> A aula de música.
+        Boy: Hoje eu não tenho essa aula.
+    -> Ao banheiro. <<if visited("Opção 2") == false>>
+        Boy: Vambora! ;)
+        <<jump Opção 2>>
+===
+__PrivCrochet_colorID: 0
+__PrivCrochet_position: 924,108
+__PrivCrochet_tags: 
+title: Opção 1
+---
+<<bg(1)>>
+Me: Em fim na sala.
+Boy: Pensei que não chegariamos nunca.
+<<jump Start>>
+===
+__PrivCrochet_colorID: 0
+__PrivCrochet_position: 926,406
+__PrivCrochet_tags: 
+title: Opção 2
+---
+<<bg(2)>>
+Me: Bom, já termineio o que tinha que fazer aqui.
+Boy: <Arfa> Sim sim, vamos pra aula.
+<<jump Opção 1>>
+===
